@@ -51,21 +51,31 @@ void GPGGA()
     int i,j,k,n;
     char *p=GPSDATA;
     char ch[14][14];
-    char chhour[10];              /*定义小时*/
-    char chmin[10];               /*定义分钟*/
-    char chsec[10];               /*定义秒钟*/
+    char chhour[5];              /*定义小时*/
+    char chmin[5];               /*定义分钟*/
+    char chsec[8];               /*定义秒钟*/
     char wdu[10],wfen[10];      /*定义纬度和分*/
     char jdu[10],jfen[10];      /*定义经度和分*/
-    char dingwei[15];           /*质量因子 1=实时GPS,2=差分GPS*/
-    char weixingshu[10];        /*可使用卫星数*/
-    char suiping[10];           /*水平精度因子*/
+    char dingwei[14];           /*质量因子 1=实时GPS,2=差分GPS*/
+    char weixingshu[8];        /*可使用卫星数*/
+    char suiping[8];           /*水平精度因子*/
     char tianxian[10];          /*天线高程*/
     char haiba[10];             /*大地椭球面相对海平面的高度*/
-    char gpsage[10];            /*差分GPS年龄，实时GPS无*/
-    char gpsnumber[10];         /*差分基准站号*/
+    char gpsage[8];            /*差分GPS年龄，实时GPS无*/
+    char gpsnumber[8];         /*差分基准站号*/
     char dongxi[10],nanbei[10]; /*定义东西经度，南北纬*/
     for(k=0;k<14;k++)
     {
+        for(n=n+1,j=0;n<500;n++)
+        {
+            if(GPSDATA[n]!=0)
+            {
+                ch[k][j]=*(p+n);
+                j++;
+            }
+            else
+                break;
+        }
         for(j=0,i=0;j<2;j++,i++)
             chhour[j]=ch[0][i];
         for(j=0;j<2;j++,i++)
@@ -76,5 +86,13 @@ void GPGGA()
             wdu[j]=ch[1][i];
         for(j=0;j<8;i++,j++)
             wfen[j]=ch[1][i];
+        for(j=0,i=0;j<2;j++,i++)
+            jdu[j]=ch[3][i];
+        for(j=0;j<8;i++,j++)
+            jfen[j]=ch[3][i];
+        for(i=j=0;j<8;i++,j++)
+            nanbei[j]=ch[2][i];
+        for(i=j=0;j<8;i++,j++)
+            dongxi[j]=ch[4][i];
     }
 }

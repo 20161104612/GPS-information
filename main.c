@@ -10,13 +10,15 @@
 #include <string.h>
 char GPSDATA[500];
 FILE *fp1;
-
+FILE *fp3;
 int main()
 {
     void GPRMC(int n);
     void GPGGA(int n);
     int i=0,len;
     FILE *GPSDATAS = fopen("//Users//a20161104612//Desktop//GPS//GPSDATAS.TXT","r");
+    
+
     if(GPSDATAS==NULL)
     {
         printf("打开文件夹失败!\n");
@@ -102,9 +104,12 @@ void GPRMC(int n)
     for(i=j=0;j<8;i++,j++)
         mode[j]=ch[11][i];
     fp1=fopen("//Users//a20161104612//Desktop//GPS//fp1.txt","a+");
-    fprintf(fp1,"日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s\n",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
+    fp3=fopen("//Users//a20161104612//Desktop//GPS//fp3.csv","a+");
+    fprintf(fp1,"\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
+    fprintf(fp3,"\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
     fclose(fp1);
-    printf("\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s\n",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
+    fclose(fp3);
+    printf("\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
     
 }
 
@@ -177,8 +182,11 @@ void GPGGA(int n)
         for(i=j=0;j<3;i++,j++)
             gpsnumber[j]=ch[13][i];
     fp1=fopen("//Users//a20161104612//Desktop//GPS//fp1.txt","a+");
-    fprintf(fp1,"\n时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s\n颗水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
+    fp3=fopen("//Users//a20161104612//Desktop//GPS//fp3.csv","a+");
+    fprintf(fp1,"时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s颗\n水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
+    fprintf(fp3,"时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s颗\n水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
     fclose(fp1);
-    printf("\n时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s\n颗水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
+    fclose(fp3);
+    printf("时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s颗\n水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
     
 }

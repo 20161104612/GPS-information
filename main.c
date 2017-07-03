@@ -106,7 +106,7 @@ void GPRMC(int n)
     fp1=fopen("//Users//a20161104612//Desktop//GPS//fp1.txt","a+");
     fp3=fopen("//Users//a20161104612//Desktop//GPS//fp3.csv","a+");
     fprintf(fp1,"\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
-    fprintf(fp3,"\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
+    fprintf(fp3,"\n日期:%s-%s-%s时间:%s时%s分%s秒定位情况:%s纬度:%s纬 %s度%s分经度:%s经 %s度%s分地面速率:%s地面航向:%s磁偏角:%s度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
     fclose(fp1);
     fclose(fp3);
     printf("\n日期:%s-%s-%s\n时间:%s时%s分%s秒\n定位情况:%s\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n地面速率:%s\n地面航向:%s\n磁偏角:%s\n度磁偏角方向:%s",year,month,date,hour,min,sec,dingwei,nanbei,wdu,wfen,dongxi,jdu,jfen,suli,hangxiang,cipian,fangxiang);
@@ -184,7 +184,7 @@ void GPGGA(int n)
     fp1=fopen("//Users//a20161104612//Desktop//GPS//fp1.txt","a+");
     fp3=fopen("//Users//a20161104612//Desktop//GPS//fp3.csv","a+");
     fprintf(fp1,"时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s颗\n水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
-    fprintf(fp3,"时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s颗\n水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
+    fprintf(fp3,"时间:%s时%s分%s秒纬度:%s纬 %s度%s分经度:%s经 %s度%s分定位情况:%s可使用卫星数:%s颗水平精度因子:%s天线高程:%s米海拔:%s米GPS年龄:%s差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
     fclose(fp1);
     fclose(fp3);
     printf("时间:%s时%s分%s秒\n纬度:%s纬 %s度%s分\n经度:%s经 %s度%s分\n定位情况:%s\n可使用卫星数:%s颗\n水平精度因子:%s\n天线高程:%s米\n海拔:%s米\nGPS年龄:%s\n差分基准站:%s\n",chhour,chmin,chsec,nanbei,wdu,wfen,dongxi,jdu,jfen,dingwei,weixingsu,suiping,tianxian,haiba,gpsage,gpsnumber);
